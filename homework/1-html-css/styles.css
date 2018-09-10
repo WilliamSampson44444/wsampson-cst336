@@ -1,0 +1,51 @@
+header, main, nav, footer, div {
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 4em;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+}
+nav a {
+    padding: 15px;
+    padding-bottom:4px;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: white;
+}
+
+nav a:hover {
+    border-bottom: 2px orange solid;
+    font-size: 2em;
+    transition: .9s;
+}
+
+body {
+    background-color:black;
+    color:gray;
+}
+
+footer {
+    clear: left;
+    font-size: .75em;
+    color: gray;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.language {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius:50px;
+}
