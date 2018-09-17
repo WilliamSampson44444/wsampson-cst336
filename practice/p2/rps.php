@@ -100,30 +100,9 @@
         $html .= winner($count);
         echo $html;
     ?>
-    <!-- <div class="row">
-        <div class='col'><img src='rps/scissors.png' alt='scissors' width='150'></div>
-        <div class='col, matchWinner'><img src='rps/rock.png' alt='rock' width='150'></div>
-    </div>
-    <hr>
 
-    <div class="row">
-        <div class='col'><img src='rps/rock.png' alt='rock' width='150'></div>
-        <div class='col, matchWinner'><img src='rps/paper.png' alt='paper' width='150'></div>
-    </div>
-    <hr>
-    
-    <div class="row">
-        <div class='col, matchWinner'><img src='rps/paper.png' alt='paper' width='150'></div>
-        <div class='col'><img src='rps/rock.png' alt='rock' width='150'></div>
-    </div>
-    <hr>
-
-    <div id="finalWinner">
-
-        <h1>The winner is Player 2</h1>
-
-    </div> -->
-    Images source: https://www.kisspng.com/png-rockpaperscissors-game-money-4410819/
+    <p>Images source: https://www.kisspng.com/png-rockpaperscissors-game-money-4410819/</p>
+    <p>by William Sampson and Bradley Wernick</p>
 </body>
 
 </html>
