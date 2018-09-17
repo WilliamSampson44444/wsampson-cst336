@@ -15,7 +15,6 @@
         $num = rand();
         $sum += $num;
         $html .= "<th>".$num."</th>";
-
         if($num % 2 == 0)
             $html .= "<th>"."even"."</th>";
         else
