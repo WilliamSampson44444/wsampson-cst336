@@ -1,0 +1,30 @@
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 4em;
+    margin-bottom: 0px;
+    text-align: center;
+    color: black;
+}
+
+div {
+    font-family: 'Roboto', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+
+footer {
+    clear: left;
+    font-size: .75em;
+    color: gray;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.disclaimer{
+    font-size:.33em;
+}
