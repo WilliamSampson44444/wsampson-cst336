@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Form Practice</title>
-  </head>
-  <body>
-      <h1>Form Practice</h1>
-     <form action="confirmation.php" method="post">
-        Name: <input type="text" id="fullName" size="25" />   <br />
-        Feedback:    <textarea id="feedback" cols="30" rows="3"></textarea><br/><br />
-        State: <br>
-        <select id="state">
-          <option value="AZ">Arizona</option>
-          <option value="CA">California</option>
-          <option value="IL">Illinois</option>
-      </select>    <br /><br />
-        Highest Degree Obtained:    <br>
-        <input type="radio"  id="item1"  name="degreeChoices"  value="High School" >
-             <label for="item1">High School Diploma</label> <br>
-        <input type="radio"  id="item2"  name="degreeChoices" value="College">
-              <label for="item2">College</label> <br><br>
-        Sports I like: <br>
-        <input type="checkbox" id="basket"  name="sports" value="basket">
-                <label for="basket"> Basketball </label> <br>
-         <input type="checkbox" id="soccer" name="sports" value="basket">
-                <label for="soccer"> Soccer </label>
-        <br/><br/>
-        <input type="button" value="Submit Data" onclick="displayData()"/>
-      </form>
-  </body>
+    <head>
+        <title>HTML Forms Experimentation</title>
+    </head>
+    <body>
+        <p><?php echo "Your favorite: ". $_POST[$name[$fav]]; ?></p>
+        <form method="POST">
+            <div>
+                <label for="names">Names:</label>
+                <div id="names">
+                    <div><input type="radio" name="fav" value=0 /> <input type="text" name="name[]" id="name" /></div>
+                    <div><input type="radio" name="fav" value=1 /> <input type="text" name="name[]" id="name" /></div>
+                    <div><input type="radio" name="fav" value=2 /> <input type="text" name="name[]" id="name" /></div>
+                    <div><input type="radio" name="fav" value=3 /> <input type="text" name="name[]" id="name" /></div>
+                    <div><input type="radio" name="fav" value=4 /> <input type="text" name="name[]" id="name" /></div>
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" value="Save" />
+                <button>Save with button</button>
+            </div>
+        </form>
+        
+    </body>
 </html>
+
+<?php
+
+require('log.inc.php');
+
+?>
