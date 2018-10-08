@@ -1,0 +1,13 @@
+body {
+    text-align:center;
+}
+div {
+    text-align:center;
+    background:pink;
+    opacity:50;
+    border-radius:20px
+}
+
+table {
+    text-align:center;
+}
