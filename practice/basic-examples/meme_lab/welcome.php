@@ -9,9 +9,16 @@
     <h2>Welcome to my Meme Generator!</h2>
     
     <form method="post" action="meme.php">
-        Line 1: <input type="text" name="line1"></input> <br/>
-        Line 2: <input type="text" name="line2"></input> <br/>
-        <input type="submit"></input>
+      Line 1: <input type="text" name="line1"></input> <br/>
+      Line 2: <input type="text" name="line2"></input> <br/>
+      Meme Type:<select name="meme-type">
+        <option value="college-grad">Happy College Grad</option>
+        <option value="thinking-ape">Deep Thought Monkey</option>
+        <option value="coding">Learning to Code</option>
+        <option value="old-class">Old Classroom</option>
+      </select><br>
+      <input type="submit"></input>
     </form>
+    <a href="./meme.php">View All Memes</a>
   </body>
 </html>

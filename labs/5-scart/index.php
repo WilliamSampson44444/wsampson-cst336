@@ -1,7 +1,7 @@
 <?php
-    session_start();
     include 'functions.php';
-    
+    session_start();
+
     if(!isset($_SESSION['cart'])){
         $_SESSION['cart'] = array();
     }
