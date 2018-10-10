@@ -20,15 +20,12 @@
                 echo "<input type='hidden' name='itemId' value='$itemId'>";
                 echo "<input type='hidden' name='itemImage' value='$itemImage'>";
                 echo "<input type='hidden' name='itemPrice' value='$itemPrice'>";
-                echo "<td><button class='btn btn-warning'>Add</button></td>";
-                echo "</form>";
-                
                 if($_POST['itemId'] == $itemId){
                     echo '<td><button class="btn btn-success">Added</button></td>';
                 }else{
                     echo '<td><button class="btn btn-warning">Add</button></td>';
                 }
-                
+                echo "</form>";
                 echo "</tr>";
             }
             echo "</table>";
