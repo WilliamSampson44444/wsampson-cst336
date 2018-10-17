@@ -11,6 +11,41 @@ function createMeme($line1, $line2, $memeType, $memeURL) {
     $statement->execute(); 
 }
 
+function getMemes() {
+
+    $dbConn = getDatabaseConnection(); 
+
+    $sql = "SELECT * from meme_lab"; 
+    $statement = $dbConn->prepare($sql); 
+
+    $statement->execute(); 
+    $records = $statement->fetchAll(); 
+    
+    displayMemes($records);
+    
+}
+
+function searchMemes($search){
+    $dbConn = getDatabaseConnection(); 
+
+    $sql = "SELECT * from meme_lab WHERE line1 LIKE '%$search%' or line2 LIKE '%$search%'"; 
+    $statement = $dbConn->prepare($sql); 
+    
+    $statement->execute(); 
+    $records = $statement->fetchAll(); 
+    
+    displayMemes($records);
+}
+
+function displayMemes($records){
+    foreach ($records as $record) {
+        echo '<div class="meme-div" style="background-image:url(' . $record["meme_url"] .');">';
+        echo '<h2 class="line1">' . $record["line1"] . '</h2>';
+        echo '<h2 class="line2">' . $record["line2"] . '</h2>';
+        echo '</div>';
+    }
+}
+
 if (isset($_POST['line1']) && isset($_POST['line2'])) {
     $memeType = $_POST['meme-type'];
     if($memeType == "college-grad"){
@@ -24,25 +59,6 @@ if (isset($_POST['line1']) && isset($_POST['line2'])) {
     }
     createMeme($_POST['line1'], $_POST['line2'], $memeType, $memeURL); 
 }
-
-function displayMemes() {
-
-    $dbConn = getDatabaseConnection(); 
-
-    $sql = "SELECT * from meme_lab"; 
-    $statement = $dbConn->prepare($sql); 
-
-    $statement->execute(); 
-    $records = $statement->fetchAll(); 
-    
-    echo "<h1>All Memes</h1>";
-    foreach ($records as $record) {
-        echo '<div class="meme-div" style="background-image:url(' . $record["meme_url"] .');">';
-        echo '<h2 class="line1">' . $record["line1"] . '</h2>';
-        echo '<h2 class="line2">' . $record["line2"] . '</h2>';
-        echo '</div>';
-    }
-}   
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +69,7 @@ function displayMemes() {
         .meme-div{
             width: 450px;
             height: 450px;
-            background-size: 100%;
+            background-size: cover;
             text-align: center;
             position: relative;
         }
@@ -81,17 +97,30 @@ function displayMemes() {
     <body>
         <?php if(isset($_POST['line1']) || isset($_POST['line2'])){ ?>
         <h1>Your Meme</h1>
-        <!--The image needs to be rendered for each new meme
-        so set the div's background-image property inline -->
-        <div class="meme-div" style="<?$memeURL?>">
+        <div class="meme-div" style="background-image:url('<?php echo $memeURL;?>')">
             <h2 class="line1"><?=$_POST['line1']?></h2>
             <h2 class="line2"><?=$_POST['line2']?></h2>
         </div>
         <?php } ?>
         
+        <h1>Search:</h1>
+        <form method="post" action="meme.php">
+            <input type="text" name="search"></input> <br/>
+            <input type="submit"></input>
+        </form><br>
+        
         <div class="memes-container">
         <?php
-            displayMemes();
+            if(isset($_POST['search'])){
+                echo "<h1>Memes containing " . $_POST['search'] . ":</h1>";
+                searchMemes($_POST['search']);
+            }
+        ?></div><div style="clear:both"></div><br>
+        
+        <h1>All Memes</h1>
+        <div class="memes-container">
+        <?php
+            getMemes();
         ?>
         </div><div style="clear:both"></div>
 
