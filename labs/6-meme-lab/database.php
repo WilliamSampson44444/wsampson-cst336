@@ -2,7 +2,7 @@
 // connect to our mysql database server
 
 function getDatabaseConnection() {
-    if($_SERVER['SERVER_NAME'] != 'wsampson-cst336'){
+    if($_SERVER['SERVER_NAME'] == "wsampson-cst336-williamsampson44444.c9users.io"){
         $host = "localhost";
         $username = "williamsampson";
         $password = "cst336";
