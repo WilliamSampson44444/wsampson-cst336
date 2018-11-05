@@ -1,13 +1,13 @@
 <?php
 // connect to our mysql database server
-
 function getDatabaseConnection() {
-    if($_SERVER['SERVER_NAME'] != 'wsampson-cst336'){
+    if (strpos($_SERVER['SERVER_NAME'], "c9users") !== false) {
+        // running on cloud9
         $host = "localhost";
         $username = "williamsampson";
-        $password = "cst336";
-        $dbname = "meme_lab"; 
-    }else{
+        $password = "cst336"; // best practice: define this in a separte file
+        $dbname = "memes_v2"; 
+    } else {
         $host = "us-cdbr-iron-east-01.cleardb.net";
         $username = "b5c8793353d2d0";
         $password = "40062f6e";
@@ -16,8 +16,8 @@ function getDatabaseConnection() {
     // Create connection
     $dbConn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $dbConn -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
     return $dbConn; 
 }
-
+// temporary test code
+//$dbConn = getDatabaseConnection(); 
 ?>
