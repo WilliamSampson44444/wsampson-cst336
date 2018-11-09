@@ -36,6 +36,12 @@
  bottom: 0;
 }
 
+.edit-menu {
+ position: absolute;
+ bottom: -22px;
+}
+
+
 nav ul {
     float: right;
     text-decoration: none;
