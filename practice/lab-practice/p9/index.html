@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Holiday Shopping</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <h1>Holiday Shopping</h1>
+        <h2>Cart</h2>
+        <form method="post" action="confirm.html">
+            <table>
+                <tr>
+                    
+                    <td>Product</td>
+                    <td>Unit Price</td>
+                    <td>Quanitty</td>
+                    <td>Total</td>
+                    
+                </tr><br>
+                <tr>
+                    <td>Fruit Cake</td>
+                    <td>$30</td>
+                    <td><input id="fcquant" type="text"></td>
+                    <td><div id="fctot"></div></td>
+                </tr><br>
+                <tr>
+                    <td>Pinata (Medium Size)</td>
+                    <td>$20</td>
+                    <td><input id="pinquant" type="text"></td>
+                    <td><div id="pintot"></div></td>
+                </tr><br>
+                <tr>
+                    <td>Shipping</td>
+                    <td></td>
+                    <td></td>
+                    <td><div id="shipcost"></div></td>
+                </tr><br>
+                <tr>
+                    <td>Subtotal</td>
+                    <td></td>
+                    <td></td>
+                    <td><div id="subtot"></div></td>
+                </tr><br>
+                <tr>
+                    <td>Tax</td>
+                    <td></td>
+                    <td></td>
+                    <td><div id="tax"></div></td>
+                </tr><br>
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td><div id="total"></div></td>
+                </tr><br>
+            </table>
+            <h3>Shipping and Handling</h3>
+            <input type="radio" id="ship15" name="shipping" value="15">Next-Day Delivery: $15.00<br>
+            <input type="radio" id="ship10" name="shipping" value="10">Three-day Delivery: $10.00<br>
+            <input type="radio" id="ship5" name="shipping" value="5">Regular shipping (5-8 days): $5.00<br>
+            
+            <br>
+            <input type="checkbox" id="terms">I accept the terms of this purchase.<br>
+            <button id="confirm">CONFIRM PURCHASE</button>
+        </form>
+        <script src="cart.js"></script>
+    </body>
+</html>
