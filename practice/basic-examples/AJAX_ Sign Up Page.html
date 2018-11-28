@@ -1,50 +1,65 @@
 <!DOCTYPE html>
-<html style="text-align: center;">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- saved from url=(0037)https://cst336-sign-in.herokuapp.com/ -->
+<html style="text-align: center;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
         
         <title>AJAX: Sign Up Page</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="./AJAX_ Sign Up Page_files/bootstrap.min.css">
+
+<!-- jQuery library -->
+
+
+<!-- Latest compiled JavaScript -->
+<script src="./AJAX_ Sign Up Page_files/bootstrap.min.js.download"></script> 
+        <script src="./AJAX_ Sign Up Page_files/jquery-3.1.0.js.download"></script>
         <script>
+        
             function validateForm() {
+                
                 return false;
+           
             }
+            
         </script>
         
         <script>
             /* global $*/
             var chicken =true; 
-            function getCountyList_jQuery() {        
-                $.ajax({
-                    type: "get",
-                    url: "http://hosting.csumb.edu/laramiguel/ajax/countyList.php",
-                    dataType: "json",
-                    data: { "state": $("#state").val() },
-                    success: function(data,status) {
-                         $("#county").html("<option> Select One </option>");
-                         for (var i=0; i< data['counties'].length; i++){
-                            $("#county").append("<option>" + data["counties"][i].county + "</option>" );
-                        }
-                      },
-                      complete: function(data,status) { //optional, used for debugging purposes
-                        //  alert(status);
-                      }
-                 });
-            }
+   function getCountyList_jQuery() {        
+     $.ajax({
+            type: "get",
+            url: "http://hosting.csumb.edu/laramiguel/ajax/countyList.php",
+            dataType: "json",
+            data: { "state": $("#state").val() },
+            success: function(data,status) {
+                 $("#county").html("<option> Select One </option>");
+                 for (var i=0; i< data['counties'].length; i++){
+                     $("#county").append("<option>" + data["counties"][i].county + "</option>" );
+                }
+              },
+              complete: function(data,status) { //optional, used for debugging purposes
+                //  alert(status);
+              }
+         });
+}
 
+
+            
             $(document).ready( function(){
+                
                 $("#submit").click( function(){
-                    if(chicken){
+                
+                    if(chicken)
+                    {
                         alert("Please check and retype password!");
                     }
+                        
                 });
                 
-                $("#username").change(function(){
+                $("#username").change(function()
+                {
                     $.ajax({
 
                         type: "GET",
@@ -53,7 +68,7 @@
                         data: { "username": $("#username").val() },
                         success: function(data,status) {
                         
-                            alert(data);
+                            //alert(data.password);
                             
                             if (!data) {  //data == false
                                 
@@ -67,17 +82,12 @@
                         
                         },
                         complete: function(data,status) { //optional, used for debugging purposes
-                            alert(status);
+                        //alert(status);
                         }
                         
                     });//ajax
-                    /*if ($("#username").val() == "bob") {
-                        $("#confirmation").html("Username Unavailable!");
-                        $("#confirmation").css("color","red");
-                    } else {
-                        $("#confirmation").html("Username Available!");
-                        $("#confirmation").css("color","green");
-                    }*/
+                    
+                    
                 });
                 
                 $("#pass2").change(function(){
@@ -96,7 +106,10 @@
                 });
                 
                 $("#state").change(function() {
+                    //alert($("#state").val());
+                    
                     $.ajax({
+
                         type: "GET",
                         url: "http://itcdland.csumb.edu/~milara/ajax/countyList.php",
                         dataType: "json",
@@ -108,43 +121,65 @@
                         for(var i = 0; i < data.length; i++){
                              $("#county").append("<option>" + data[i].county + "</option>");
                         }
+                        
                         },
-                        complete: function(data,status) {
+                        complete: function(data,status) { //optional, used for debugging purposes
                         //alert(status);
                         }
+                    
                     });//ajax
+                    
+                    
+                    
                 });
                 
                 $("#zipCode").change( function(){  
+                    
+                    //alert( $("#zipCode").val() );  
+                    
                     $.ajax({
+
                         type: "GET",
                         url: "http://itcdland.csumb.edu/~milara/ajax/cityInfoByZip.php",
                         dataType: "json",
                         data: { "zip": $("#zipCode").val()   },
                         success: function(data,status) {
-                            //alert(data.city);
-                            if(!data){
+                          
+                          //alert(data.city);
+                          if(!data)
+                            {
                                 $("#zip").html("Not a valid zip code!");
                                 $("#zip").css("color","red");
-                            }else{
+                            }
+                            else{
                                 $("#zip").html("");
-                                $("#city").html(data.city);
-                                $("#latitude").html(data.latitude);
-                                $("#longitude").html(data.longitude);
+                          $("#city").html(data.city);
+                          $("#latitude").html(data.latitude);
+                          $("#longitude").html(data.longitude);
                             }
                         },
-                        complete: function(data,status) {
-                            //alert(status);
+                        complete: function(data,status) { //optional, used for debugging purposes
+                        //alert(status);
                         }
+                        
                     });//ajax
                     
-                });//function
+                    
+                    
+                } );
                 
-            }); //documentReady
+            }   ); //documentReady
+            
+            
+            
         </script>
+
     </head>
+
     <body>
-       <h1> Ajax Signup </h1>
+    
+       <h1> Sign Up Form </h1>
+    
         <form onsubmit="return validateForm()">
             <fieldset>
                <legend style="text-align: center;">Sign Up</legend>
@@ -162,12 +197,13 @@
                 State: 
                 <select id="state" onchange="getCountyList_jQuery()">
                     <option value="">Select One</option>
-                    <option value="ca">California</option>
-                    <option value="ny">New York</option>
-                    <option value="tx">Texas</option>
-                    <option value="va">Virginia</option>
+                    <option value="ca"> California</option>
+                    <option value="ny"> New York</option>
+                    <option value="tx"> Texas</option>
+                    <option value="va"> Virginia</option>
                 </select><br>
                 Select a County: <select id="county"></select><br>
+                
                 
                 Desired Username: <input type="text" id="username">
                 <span id="confirmation"></span><br>
@@ -180,5 +216,5 @@
                 <br>
             </fieldset>
         </form>
-    </body>
-</html>
+    
+</body></html>
