@@ -21,15 +21,5 @@ $statement = $dbConn->prepare($sql);
 $statement->execute();
 $records = $statement->fetchAll(); 
 
-/*$url = "gradeQuiz.js";
-$ch = curl_init();
-
-$data = json_encode($records);
-curl_setopt($ch, CURLOPT_POST, 1);
-curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-$result = curl_exec($ch);
-curl_close($ch);
-return json_decode($result);*/
 echo json_encode($records);
 ?>
